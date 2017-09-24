@@ -2,9 +2,40 @@ $(document).ready(() => {
 	console.log('Hello World!')
 });
 
-// Created a simple "alert" to get our bearings.
-  alert("hi");
-  
+
+// crystal 1 ----------------
+
+    // Here we created an on-click event that responds to button clicks of the crystal image.
+  $(".crystal-1").on("click", function() {
+    // Clicking the button triggers an alert message.
+    alert("You clicked crystal 1");
+});
+
+ // crystal 2 ----------------
+
+    // Here we created an on-click event that responds to button clicks of the crystal image.
+  $(".crystal-2").on("click", function() {
+    // Clicking the button triggers an alert message.
+    alert("You clicked crystal 2");
+});
+
+   // crystal 3 ----------------
+
+    // Here we created an on-click event that responds to button clicks of the crystal image.
+  $(".crystal-3").on("click", function() {
+    // Clicking the button triggers an alert message.
+    alert("You clicked crystal 3");
+});
+
+ // crystal 4 ----------------
+
+    // Here we created an on-click event that responds to button clicks of the crystal image.
+  $(".crystal-4").on("click", function() {
+    // Clicking the button triggers an alert message.
+    alert("You clicked crystal 4");
+});
+
+
 // The player will have to guess the answer, just like in Hangman. This time, though, the player will guess with numbers instead of letters.
 
 		// Option 1 Game design notes
