@@ -81,123 +81,123 @@ $(document).ready(() => {
 
 
 //starting the game, add values to gems (from gem object) and add to html
-var gameState = {
+// var gameState = {
 
-  targetNumber : randomNumberGenerate(19, 120),
-  wins : 0,
-  losses : 0,
-  resultNumber : 0, 
+//   targetNumber : randomNumberGenerate(19, 120),
+//   wins : 0,
+//   losses : 0,
+//   resultNumber : 0, 
 
-  // update resultNumber with clickValue
-  updateResult: function(num){
-    this.resultNumber += num;
+//   // update resultNumber with clickValue
+//   updateResult: function(num){
+//     this.resultNumber += num;
 
-    console.log("result number: " + this.resultNumber);
-    // display resultNum in page
-    $("#crystals").html(this.resultNumber);
-    // if target number is  === result number then win goes up by 1 
-    // display winning text on page
-    // if result number is greater than > target number than lose increases by 1
-    // display losing text on page
+//     console.log("result number: " + this.resultNumber);
+//     // display resultNum in page
+//     $("#crystals").html(this.resultNumber);
+//     // if target number is  === result number then win goes up by 1 
+//     // display winning text on page
+//     // if result number is greater than > target number than lose increases by 1
+//     // display losing text on page
     
-      if(this.resultNumber > this.targetNumber ){
-        this.losses++;
-        console.log("losses " + this.losses); 
-        this.gameReset();    
+//       if(this.resultNumber > this.targetNumber ){
+//         this.losses++;
+//         console.log("losses " + this.losses); 
+//         this.gameReset();    
       
-      } else if(this.resultNumber === this.targetNumber) {
-        this.wins++;
-        console.log("wins " + this.wins);
-        this.gameReset();
-      } else {
-        return;
-      }
+//       } else if(this.resultNumber === this.targetNumber) {
+//         this.wins++;
+//         console.log("wins " + this.wins);
+//         this.gameReset();
+//       } else {
+//         return;
+//       }
 
-    },
+//     },
 
-    gameReset: function(){
-      // call function again, generate new num
-      gameState.targetNumber = randomNumberGenerate(19, 120);
+//     gameReset: function(){
+//       // call function again, generate new num
+//       gameState.targetNumber = randomNumberGenerate(19, 120);
 
-      // set resultnum to 0 √
-      this.resultNumber = 0;
+//       // set resultnum to 0 √
+//       this.resultNumber = 0;
 
-      // give buttons new values
-      gemsValue.assignNumber();
+//       // give buttons new values
+//       gemsValue.assignNumber();
 
-    }
-};
+//     }
+// };
 
 
-// create a random number - tested.
-function randomNumberGenerate(min, max){
-   return Math.floor(Math.random()*(max-min+1)+ min);
-   //0.1 - 0.9
-   //0.1 * (12 - 2 + 1) + 2 =
-}
+// // create a random number - tested.
+// function randomNumberGenerate(min, max){
+//    return Math.floor(Math.random()*(max-min+1)+ min);
+//    //0.1 - 0.9
+//    //0.1 * (12 - 2 + 1) + 2 =
+// }
 
-//subject ot relocation 
-  $("#number-to-guess").text(gameState.targetNumber);
+// //subject ot relocation 
+//   $("#number-to-guess").text(gameState.targetNumber);
 
-  var gemsValue = {
+//   var gemsValue = {
 
-    gems: [],
+//     gems: [],
 
-    //until array equal 4, generate numbers and add to array, if not already in array, push to array. create seperate function for randomizing the array order.... call r
+//     //until array equal 4, generate numbers and add to array, if not already in array, push to array. create seperate function for randomizing the array order.... call r
 
-    // replace a randon index in gems with a 1. max is gem length (3)
-    replaceOne : function(max) {
-        //takes the gems array and selects a random index
-        var gemNumIndex = Math.floor(Math.random()*(max));
-        console.log("random index: " + gemNumIndex);
-        // at random index replace value with 1
-        this.gems.splice(gemNumIndex, 1, 1);
-        console.log("updated array " + this.gems);
-    },
+//     // replace a randon index in gems with a 1. max is gem length (3)
+//     replaceOne : function(max) {
+//         //takes the gems array and selects a random index
+//         var gemNumIndex = Math.floor(Math.random()*(max));
+//         console.log("random index: " + gemNumIndex);
+//         // at random index replace value with 1
+//         this.gems.splice(gemNumIndex, 1, 1);
+//         console.log("updated array " + this.gems);
+//     },
 
-    // run randomnumbgenerate function 4 times using a for loop. add those values to array
-    assignNumber : function(){
-      // run until gems is length of 4
-      while(this.gems.length < 4){
-        var num = randomNumberGenerate(2,12)
-        // gems arrray doesn't aleady have num add num
-        if(!this.gems.includes(num)){
-          gemsValue.gems.push(num);
-        } 
-      }
-      console.log("gem array: " + this.gems);
-      this.replaceOne(this.gems.length);
-    },
-    // assign each button a value from gems array
-    assignValueToHtml : function(){
-      // each  gem item === a button there are 4 buttons and 4 array items.
-        // all buttons have btn call and a unique class of btn1-4
-        $('.btn1').val(this.gems[0]);
-        $('.btn2').val(this.gems[1]);
-        $('.btn3').val(this.gems[2]);
-        $('.btn4').val(this.gems[3]);
-    },
+//     // run randomnumbgenerate function 4 times using a for loop. add those values to array
+//     assignNumber : function(){
+//       // run until gems is length of 4
+//       while(this.gems.length < 4){
+//         var num = randomNumberGenerate(2,12)
+//         // gems arrray doesn't aleady have num add num
+//         if(!this.gems.includes(num)){
+//           gemsValue.gems.push(num);
+//         } 
+//       }
+//       console.log("gem array: " + this.gems);
+//       this.replaceOne(this.gems.length);
+//     },
+//     // assign each button a value from gems array
+//     assignValueToHtml : function(){
+//       // each  gem item === a button there are 4 buttons and 4 array items.
+//         // all buttons have btn call and a unique class of btn1-4
+//         $('.btn1').val(this.gems[0]);
+//         $('.btn2').val(this.gems[1]);
+//         $('.btn3').val(this.gems[2]);
+//         $('.btn4').val(this.gems[3]);
+//     },
 
-    //Function to reset data
-    resetRandomValue : function() {
-      this.gems = [];
-    },
-  };
+//     //Function to reset data
+//     resetRandomValue : function() {
+//       this.gems = [];
+//     },
+//   };
 
-$(document).ready(function(){
-  randomNumberGenerate(19, 120);
-  $("#crystals").html(gameState.resultNumber);
-  gemsValue.assignNumber(); //on ready assign gem value
-  gemsValue.assignValueToHtml(); // give buttons value
+// $(document).ready(function(){
+//   randomNumberGenerate(19, 120);
+//   $("#crystals").html(gameState.resultNumber);
+//   gemsValue.assignNumber(); //on ready assign gem value
+//   gemsValue.assignValueToHtml(); // give buttons value
 
-  //if button (this) is clicked the value assigned is add to a counter array
-  // bind function to click of buttons
-  $(".btn").on("click", function(){ 
-    var clickValue = parseInt($(this).val());
-    gameState.updateResult(clickValue);
-  });
+//   //if button (this) is clicked the value assigned is add to a counter array
+//   // bind function to click of buttons
+//   $(".btn").on("click", function(){ 
+//     var clickValue = parseInt($(this).val());
+//     gameState.updateResult(clickValue);
+//   });
 
-});
+// });
 
  
 
@@ -242,11 +242,57 @@ $(document).ready(function(){
 
 // The player will have to guess the answer, just like in Hangman. This time, though, the player will guess with numbers instead of letters.
 
-		// Option 1 Game design notes
+		
 
 // The random number shown at the start of the game should be between 19 - 120.
 
+var randomNumberGenerate = function() {
+  // generator and a number
+  //var gemNumIndex = Math.floor(Math.random()*(max));
+  // return Math.random() * (max - min) + min;
+
+
+  var randomNumber = Math.floor(Math.random() * (120 - 19) + 19);
+  // use jquery to display random number on page
+  $ ("#random-number").html(randomNumber);
+
+
+}
+
+randomNumberGenerate();
+
 // Each crystal should have a random hidden value between 1 - 12. -->
+
+// crystal-1
+var crystalNumberGenerate = function() {
+  return Math.floor(Math.random() * (12 - 1) + 1);
+};
+
+var crystalNumberSet = function() {
+  // generator and a number
+  var crystalNumberOne = crystalNumberGenerate();
+  // use jquery to display random number on page
+  $ ("#crystal-1").attr("num", crystalNumberOne);
+
+   // generator and a number
+  var crystalNumberTwo = crystalNumberGenerate();
+  // use jquery to display random number on page
+  $ ("#crystal-2").attr("num", crystalNumberTwo);
+
+   // generator and a number
+  var crystalNumberThree = crystalNumberGenerate();
+  // use jquery to display random number on page
+  $ ("#crystal-3").attr("num", crystalNumberThree);
+
+   // generator and a number
+  var crystalNumberFour = crystalNumberGenerate();
+  // use jquery to display random number on page
+  $ ("#crystal-4").attr("num", crystalNumberFour);
+
+
+}
+
+crystalNumberSet();
 
 		// Here's how the app works:
 
@@ -255,6 +301,51 @@ $(document).ready(function(){
 // The player will be shown a random number at the start of the game.
 
 // When the player clicks on a crystal, it will add a specific amount of points to the player's total score.
+// on-click event
+
+
+ // BUTTON CLICKS 
+
+// crystal 1 ----------------
+
+    // Here we created an on-click event that responds to button clicks of the crystal image.
+
+
+              // Notes moving forward
+// copy this 4 times
+// update players score counter counter variable should be global
+// show winning score if the player score mathed the target random number
+// reset the score and generat a new number
+
+  $("#crystal-1").on("click", function() {
+    // Clicking the button triggers an alert message.
+    alert("The random number is" + $("#crystal-1").attr("num"));
+});
+
+ // crystal 2 ----------------
+
+    // Here we created an on-click event that responds to button clicks of the crystal image.
+   $("#crystal-2").on("click", function() {
+    // Clicking the button triggers an alert message.
+    alert("The random number is" + $("#crystal-2").attr("num"));
+});
+
+   // crystal 3 ----------------
+
+    // Here we created an on-click event that responds to button clicks of the crystal image.
+   $("#crystal-3").on("click", function() {
+    // Clicking the button triggers an alert message.
+    alert("The random number is" + $("#crystal-3").attr("num"));
+});
+
+ // crystal 4 ----------------
+
+    // Here we created an on-click event that responds to button clicks of the crystal image.
+  $("#crystal-4").on("click", function() {
+    // Clicking the button triggers an alert message.
+    alert("The random number is" + $("#crystal-4").attr("num"));
+});
+
 
 // Your game will hide this amount until the player clicks a crystal.
 
